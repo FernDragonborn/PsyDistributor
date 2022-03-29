@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\PsyDistributor.csproj": {}
+  },
+  "projects": {
+    "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\PsyDistributor.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\PsyDistributor.csproj",
+        "projectName": "PsyDistributor",
+        "projectPath": "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\PsyDistributor.csproj",
+        "packagesPath": "E:\\Users\\Папороть\\.nuget\\packages\\",
+        "outputPath": "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "E:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "E:\\Users\\Папороть\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "E:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "E:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Google.Apis": {
+              "target": "Package",
+              "version": "[1.56.0, )"
+            },
+            "Google.Apis.Oauth2.v2": {
+              "target": "Package",
+              "version": "[1.56.0.1869, )"
+            },
+            "Google.Apis.Sheets.v4": {
+              "target": "Package",
+              "version": "[1.56.0.2623, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "E:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "PsyDistributor/1.0.0": {
+        "dependencies": {
+          "Google.Apis": "1.56.0",
+          "Google.Apis.Oauth2.v2": "1.56.0.1869",
+          "Google.Apis.Sheets.v4": "1.56.0.2623"
+        },
+        "runtime": {
+          "PsyDistributor.dll": {}
+        }
+      },
+      "Google.Apis/1.56.0": {
+        "dependencies": {
+          "Google.Apis.Core": "1.56.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.dll": {
+            "assemblyVersion": "1.56.0.0",
+            "fileVersion": "1.56.0.0"
+          }
+        }
+      },
+      "Google.Apis.Auth/1.56.0": {
+        "dependencies": {
+          "Google.Apis": "1.56.0",
+          "Google.Apis.Core": "1.56.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Auth.PlatformServices.dll": {
+            "assemblyVersion": "1.56.0.0",
+            "fileVersion": "1.56.0.0"
+          },
+          "lib/netstandard2.0/Google.Apis.Auth.dll": {
+            "assemblyVersion": "1.56.0.0",
+            "fileVersion": "1.56.0.0"
+          }
+        }
+      },
+      "Google.Apis.Core/1.56.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "13.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Core.dll": {
+            "assemblyVersion": "1.56.0.0",
+            "fileVersion": "1.56.0.0"
+          }
+        }
+      },
+      "Google.Apis.Oauth2.v2/1.56.0.1869": {
+        "dependencies": {
+          "Google.Apis": "1.56.0",
+          "Google.Apis.Auth": "1.56.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Oauth2.v2.dll": {
+            "assemblyVersion": "1.56.0.1869",
+            "fileVersion": "1.56.0.1869"
+          }
+        }
+      },
+      "Google.Apis.Sheets.v4/1.56.0.2623": {
+        "dependencies": {
+          "Google.Apis": "1.56.0",
+          "Google.Apis.Auth": "1.56.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Google.Apis.Sheets.v4.dll": {
+            "assemblyVersion": "1.56.0.2623",
+            "fileVersion": "1.56.0.2623"
+          }
+        }
+      },
+      "Newtonsoft.Json/13.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "13.0.0.0",
+            "fileVersion": "13.0.1.25517"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PsyDistributor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Google.Apis/1.56.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Oi/M8PmtmXo+3gBX0ZxaijQULuZKnNjDNIceRA+OcUUn3pmYhljGSAWcsWUY64KgdzurM9kF5MoCSWqevzR/UA==",
+      "path": "google.apis/1.56.0",
+      "hashPath": "google.apis.1.56.0.nupkg.sha512"
+    },
+    "Google.Apis.Auth/1.56.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-/TXElJg0lP47/MdYKtzWnrf2suwovKmeHslyUbyITQ9SGby4yj7Aj07QOufc9FjdciA8MrNZXsEqExID7LKblw==",
+      "path": "google.apis.auth/1.56.0",
+      "hashPath": "google.apis.auth.1.56.0.nupkg.sha512"
+    },
+    "Google.Apis.Core/1.56.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mhntBSe9/bXVP6EeB2g+Db6N4dzVYL12t+nkVcNTZzaI6fEFIp1l5BggmMMk6vY1Q/HUpZ5iHA/+h7j2pWWX5w==",
+      "path": "google.apis.core/1.56.0",
+      "hashPath": "google.apis.core.1.56.0.nupkg.sha512"
+    },
+    "Google.Apis.Oauth2.v2/1.56.0.1869": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7FtSROh5sfwp4ZhzWpsq/q0X+2F/YwSYCx6zNnFmimKDj8kJPiorLWUNpxtbAf6whcPRfLdfG5PHcfFHEdKuQQ==",
+      "path": "google.apis.oauth2.v2/1.56.0.1869",
+      "hashPath": "google.apis.oauth2.v2.1.56.0.1869.nupkg.sha512"
+    },
+    "Google.Apis.Sheets.v4/1.56.0.2623": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iRu7tfhhwzVCrE4DrVtNl4dSXIWNXJ5Q9jdOH7nprgsnwQuGGd5ObrVXpN4RvWGepLNGbIYt6WnSFZQP8ezNOw==",
+      "path": "google.apis.sheets.v4/1.56.0.2623",
+      "hashPath": "google.apis.sheets.v4.1.56.0.2623.nupkg.sha512"
+    },
+    "Newtonsoft.Json/13.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ppPFpBcvxdsfUonNcvITKqLl3bqxWbDCZIzDWHzjpdAHRFfZe0Dw9HmA0+za13IdyrgJwpkDTDA9fHaxOrt20A==",
+      "path": "newtonsoft.json/13.0.1",
+      "hashPath": "newtonsoft.json.13.0.1.nupkg.sha512"
+    }
+  }
+}
