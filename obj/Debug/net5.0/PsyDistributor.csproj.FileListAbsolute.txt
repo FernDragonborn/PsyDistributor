@@ -39,3 +39,28 @@ E:\Users\Папороть\Desktop\PsyDistributor\obj\Debug\net5.0\PsyDistributor
 E:\Users\Папороть\Desktop\PsyDistributor\obj\Debug\net5.0\refint\PsyDistributor.dll
 E:\Users\Папороть\Desktop\PsyDistributor\obj\Debug\net5.0\PsyDistributor.genruntimeconfig.cache
 E:\Users\Папороть\Desktop\PsyDistributor\obj\Debug\net5.0\ref\PsyDistributor.dll
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\PsyDistributor.csproj.AssemblyReference.cache
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\PsyDistributor.GeneratedMSBuildEditorConfig.editorconfig
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\PsyDistributor.AssemblyInfoInputs.cache
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\PsyDistributor.AssemblyInfo.cs
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\PsyDistributor.csproj.CoreCompileInputs.cache
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\PsyDistributor.dll
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\refint\PsyDistributor.dll
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\PsyDistributor.pdb
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\PsyDistributor.exe
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\client_secrets.json
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\PsyDistributor.deps.json
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\PsyDistributor.runtimeconfig.json
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\PsyDistributor.runtimeconfig.dev.json
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\PsyDistributor.dll
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\PsyDistributor.pdb
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\Google.Apis.dll
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\Google.Apis.Auth.PlatformServices.dll
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\Google.Apis.Auth.dll
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\Google.Apis.Core.dll
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\Google.Apis.Oauth2.v2.dll
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\Google.Apis.Sheets.v4.dll
+C:\data\my data\Проганье\PsyDistributor\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\PsyDistributor.csproj.CopyComplete
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\PsyDistributor.genruntimeconfig.cache
+C:\data\my data\Проганье\PsyDistributor\obj\Debug\net5.0\ref\PsyDistributor.dll

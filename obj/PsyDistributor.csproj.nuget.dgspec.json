@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\PsyDistributor.csproj": {}
+    "C:\\data\\my data\\Проганье\\PsyDistributor\\PsyDistributor.csproj": {}
   },
   "projects": {
-    "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\PsyDistributor.csproj": {
+    "C:\\data\\my data\\Проганье\\PsyDistributor\\PsyDistributor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\PsyDistributor.csproj",
+        "projectUniqueName": "C:\\data\\my data\\Проганье\\PsyDistributor\\PsyDistributor.csproj",
         "projectName": "PsyDistributor",
-        "projectPath": "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\PsyDistributor.csproj",
+        "projectPath": "C:\\data\\my data\\Проганье\\PsyDistributor\\PsyDistributor.csproj",
         "packagesPath": "E:\\Users\\Папороть\\.nuget\\packages\\",
-        "outputPath": "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\obj\\",
+        "outputPath": "C:\\data\\my data\\Проганье\\PsyDistributor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "E:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

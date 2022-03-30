@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oCOF5e1ebzJalgHZS++ehXAKe7Jc5zkg6OLX5ioKxS1RP/wklMTmlcXzJYD6R4YEWUW198EYd0gGBf8rZbydUg==",
+  "dgSpecHash": "ggIpXYSLejyV2nKag3ULBJA6c+JLalQuLGXNR8BTQx190QkrHrKvrq2L+oW4G6/TxRU2H2Pet0ww3cp329gc/A==",
   "success": true,
-  "projectFilePath": "E:\\Users\\Папороть\\Desktop\\PsyDistributor\\PsyDistributor.csproj",
+  "projectFilePath": "C:\\data\\my data\\Проганье\\PsyDistributor\\PsyDistributor.csproj",
   "expectedPackageFiles": [
     "E:\\Users\\Папороть\\.nuget\\packages\\google.apis\\1.56.0\\google.apis.1.56.0.nupkg.sha512",
     "E:\\Users\\Папороть\\.nuget\\packages\\google.apis.auth\\1.56.0\\google.apis.auth.1.56.0.nupkg.sha512",
