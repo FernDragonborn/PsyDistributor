@@ -13,7 +13,8 @@ namespace PsyDistributor
     {
         static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
         static readonly string ApplicationName = "PsyDistributorApp";
-        static readonly string SpreadsheetId = "1nnBP0fQ5Li2OpwjRMVtLPfvPVaHBc3hp3-Jnd1z6aMk";
+        static readonly string SpreadsheetIdPsy = "1nnBP0fQ5Li2OpwjRMVtLPfvPVaHBc3hp3-Jnd1z6aMk";
+        static readonly string SpreadsheetIdClient = "1EMfaPrLPFQkfLvo0-RLRcfGWU8v21j6mCAG4Q_HW6kg";
         //static readonly string sheet = "Основний лист";
         static SheetsService service;
 
@@ -46,13 +47,26 @@ namespace PsyDistributor
                 .ValueInputOptionEnum.USERENTERED;
             var appendResponse = service.Spreadsheets.Values.Append(valueRange, SpreadsheetId, range).Execute();
         }
-        public static void ReadEntry(int sheetID, string range)
+        public static void ReadEntry(int bookId, int sheetId, string range)
         {
-            if (sheetID == 1) {
-
+            string SpreadsheetId = SpreadsheetIdPsy;
+            string sheet = "Основний лист";
+            if (bookId == 1) {
+                SpreadsheetId = SpreadsheetIdPsy;
+                if (sheetId == 1) sheet = "Основний лист";
+                else if (sheetId == 2) sheet = "2га анкета";
+                else Console.WriteLine("Error: wrong sheet id");
             }
-            range = $"{sheet}!A1:G10";
-            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+            else if (bookId == 2) {
+                SpreadsheetId = SpreadsheetIdClient;
+                if (sheetId == 1) sheet = "РОБОЧА ПЛОЩИНА НОВЕ";
+                else if (sheetId == 2) sheet = "НІЧНА ЗМІНА";
+                else Console.WriteLine("Error: wrong sheet id");
+            }
+            else Console.WriteLine("Error: wrong book id");
+
+            string fullRange = $"{sheet}!{range}";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, fullRange);
 
             var response = request.Execute();
             var values = response.Values;
