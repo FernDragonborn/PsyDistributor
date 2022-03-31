@@ -11,6 +11,7 @@ namespace PsyDistributor
     {
         static void Main(string[] args)
         {
+            //Crud.ReadEntry(1,1,"A:G");
             CRUD.ReadEntry();
         }
     }

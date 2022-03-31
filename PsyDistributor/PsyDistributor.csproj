@@ -9,8 +9,11 @@
 		</None>
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Google.Apis" Version="1.56.0"/>
-		<PackageReference Include="Google.Apis.Sheets.v4" Version="1.56.0.2623"/>
-		<PackageReference Include="Google.Apis.Oauth2.v2" Version="1.56.0.1869"/>
+		<PackageReference Include="Google.Apis" Version="1.56.0" />
+		<PackageReference Include="Google.Apis.Sheets.v4" Version="1.56.0.2623" />
+		<PackageReference Include="Google.Apis.Oauth2.v2" Version="1.56.0.1869" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Properties\" />
 	</ItemGroup>
 </Project>
