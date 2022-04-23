@@ -37,22 +37,22 @@ namespace PsyDistributor
 
         //entry = запись
         /*public void CreateEntry(){
-            string range = $"{sheet}!A:G";
-            var valueRange = new ValueRange();
+            var range = $"{sheet}!A:F";
+        var valueRange = new ValueRange();
 
-            //добавляет в таблицу значения по столбикам
-            var objectList = new List<object>() {"1","1","1","1","1","1"};
-            valueRange.Values = new List<IList<object>> {objectList};
+        var oblist = new List<object>() { "Hello!", "This", "was", "insertd", "via", "C#" };
+        valueRange.Values = new List<IList<object>> { oblist };
 
-            service.Spreadsheets.Values.Append(valueRange, SpreadsheetId, range).ValueInputOption = SpreadsheetsResource.ValuesResource.AppendRequest
-                .ValueInputOptionEnum.USERENTERED;
-            var appendResponse = service.Spreadsheets.Values.Append(valueRange, SpreadsheetId, range).Execute();
+        var appendRequest = service.Spreadsheets.Values.Append(valueRange, SpreadsheetId, range);
+        appendRequest.ValueInputOption = SpreadsheetsResource.ValuesResource.AppendRequest.ValueInputOptionEnum.USERENTERED;
+        var appendReponse = appendRequest.Execute();
         }*/
-        public static void ReadEntry(int bookId, int sheetId, string range)
+        public static void ReadEntry(/*int bookId, int sheetId, string range*/)
         {
 
             string SpreadsheetId = SpreadsheetIdPsy;
-            /*string sheet = "Основний лист";
+           /*
+            string sheet = "Основний лист";
             if (bookId == 1) {
                 SpreadsheetId = SpreadsheetIdPsy;
                 if (sheetId == 1) sheet = "Основний лист";
@@ -66,8 +66,11 @@ namespace PsyDistributor
                 else Console.WriteLine("Error: wrong sheet id");
             }
             else Console.WriteLine("Error: wrong book id");*/
-            string fullRange = $"{sheet}!{range}";
-            var request = service.Spreadsheets.Values.Get(SpreadsheetId, fullRange);
+
+            string cells = "A2:G5";
+            string range = $"{sheet}!{cells}";
+            SpreadsheetsResource.ValuesResource.GetRequest request =
+                service.Spreadsheets.Values.Get(SpreadsheetId, range);
 
             var response = request.Execute();
             var values = response.Values;

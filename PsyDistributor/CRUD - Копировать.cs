@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.IO;
 using Google.Apis.Sheets.v4;
@@ -12,7 +12,7 @@ namespace PsyDistributor
     public class CRUD
     {
         static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
-        static readonly string ApplicationName = "Current Legislators";
+        static readonly string ApplicationName = "PsyDistributorApp";
         static readonly string SpreadsheetId = "1P_0tngt7o02xgXr9T-wSaVXz-_JIJZekGTGRLoWLnA4";
         static readonly string sheet = "legislators-current";
         static SheetsService service;
@@ -30,11 +30,11 @@ namespace PsyDistributor
                 ApplicationName = ApplicationName,
             });
 
-            ReadEntry();
+            
         }
 
         //entry = запись
-        public void CreateEntry()
+        public static void CreateEntry()
         {
             string range = $"{sheet}!A:G";
             var valueRange = new ValueRange();
@@ -86,3 +86,4 @@ namespace PsyDistributor
         }
     }
 }
+*/
