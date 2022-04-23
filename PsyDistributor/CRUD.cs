@@ -15,24 +15,31 @@ namespace PsyDistributor
         static readonly string ApplicationName = "PsyDistributorApp";
         static readonly string SpreadsheetIdPsy = "1nnBP0fQ5Li2OpwjRMVtLPfvPVaHBc3hp3-Jnd1z6aMk";
         static readonly string SpreadsheetIdClient = "1EMfaPrLPFQkfLvo0-RLRcfGWU8v21j6mCAG4Q_HW6kg";
-        static readonly string SpreadsheetId = "1nnBP0fQ5Li2OpwjRMVtLPfvPVaHBc3hp3-Jnd1z6aMk";
-        static readonly string sheet = "Основний лист";
+        static string SpreadsheetId = "1nnBP0fQ5Li2OpwjRMVtLPfvPVaHBc3hp3-Jnd1z6aMk";
+        //static readonly string sheet = "Основний лист";
         static SheetsService service;
 
         static void MainCRUD(string[] args)
         {
+        }
+
+        public static void Init()
+        {
+            Console.OutputEncoding = System.Text.Encoding.Default;
             GoogleCredential credential;
-            using (var stream = new FileStream("client_secrets.json", FileMode.Open, FileAccess.Read)){
+            using (var stream = new FileStream("client_secrets.json", FileMode.Open, FileAccess.Read))
+            {
                 credential = GoogleCredential.FromStream(stream)
                     .CreateScoped(Scopes);
             }
 
-            service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer(){
+            service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
+            {
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
 
-            //ReadEntry(1,1,"A2:G5");
+            Console.WriteLine("CRUD initialization successfull");
         }
 
         //entry = запись
@@ -47,11 +54,8 @@ namespace PsyDistributor
         appendRequest.ValueInputOption = SpreadsheetsResource.ValuesResource.AppendRequest.ValueInputOptionEnum.USERENTERED;
         var appendReponse = appendRequest.Execute();
         }*/
-        public static void ReadEntry(/*int bookId, int sheetId, string range*/)
+        public static void ReadEntry(int bookId, int sheetId, string cells)
         {
-
-            string SpreadsheetId = SpreadsheetIdPsy;
-           /*
             string sheet = "Основний лист";
             if (bookId == 1) {
                 SpreadsheetId = SpreadsheetIdPsy;
@@ -65,9 +69,8 @@ namespace PsyDistributor
                 else if (sheetId == 2) sheet = "НІЧНА ЗМІНА";
                 else Console.WriteLine("Error: wrong sheet id");
             }
-            else Console.WriteLine("Error: wrong book id");*/
+            else Console.WriteLine("Error: wrong book id");
 
-            string cells = "A2:G5";
             string range = $"{sheet}!{cells}";
             SpreadsheetsResource.ValuesResource.GetRequest request =
                 service.Spreadsheets.Values.Get(SpreadsheetId, range);
