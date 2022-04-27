@@ -3,7 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsyDistributor", "PsyDistributor\PsyDistributor.csproj", "{E2BA80A1-81AE-45B5-B744-D659CC255497}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PsyDistributor", "PsyDistributor\PsyDistributor.csproj", "{E2BA80A1-81AE-45B5-B744-D659CC255497}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1041E871-24E3-427A-A0E1-17776540A2EB}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
