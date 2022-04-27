@@ -13,10 +13,11 @@ namespace PsyDistributor
     {
         static void Main(string[] args)
         {
-            WriteLine("Started");
-            Init();
-            WriteLine("Processing request");
-            ReadEntry(1, 1, "A:G");
+            DbInit();
+            
+            
+
+
         }
     }
 }

@@ -9,7 +9,7 @@ using Google.Apis.Auth.OAuth2;
 //потом подрубить к основной
 namespace PsyDistributor
 {
-    public class CRUD
+    public class CRUD_old
     {
         static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
         static readonly string ApplicationName = "PsyDistributorApp";
