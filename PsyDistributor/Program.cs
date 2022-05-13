@@ -99,7 +99,7 @@ namespace PsyDistributor
             //}
             //else WriteLine("No data found");
 
-            countRequestTimeStats();
+            ReadEntry_Filter(2,1);
         }
     }
 }

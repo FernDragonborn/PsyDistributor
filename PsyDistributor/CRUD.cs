@@ -181,24 +181,25 @@ namespace PsyDistributor
             else WriteLine("No data found");
         }
 
-        //public static IList<IList<object>> ReadEntry_Filter(int bookId, int sheetId) {
-        //    BookAndSheetSelection(bookId, sheetId);
+        public static void ReadEntry_Filter(int bookId, int sheetId)
+        {
+            BookAndSheetSelection(bookId, sheetId);
 
-        //var requestBody = new BatchGetValuesByDataFilterRequest();
-        //requestBody.ValueRenderOption = valueRenderOption;
-        //requestBody.DataFilters = dataFilters;
-        //requestBody.DateTimeRenderOption = dateTimeRenderOption;
+            var dataFilters = new List<DataFilter>();
+            var dataFilter = new DataFilter();
+            dataFilter.A1Range = "Київ";
+            dataFilters.Add(dataFilter);
+            var requestBody = new BatchGetValuesByDataFilterRequest();
+            requestBody.DataFilters = dataFilters;
 
-        //SpreadsheetsResource.ValuesResource.BatchGetByDataFilterRequest batchReadRequest = 
-        //    service.Spreadsheets.Values.BatchGetByDataFilter(requestBody, SpreadsheetId);
+            SpreadsheetsResource.ValuesResource.BatchGetByDataFilterRequest batchReadRequest =
+                service.Spreadsheets.Values.BatchGetByDataFilter(requestBody, SpreadsheetId);
 
-        //var response = batchReadRequest.Execute();
-        //var values = response.Values;
+            var response = batchReadRequest.Execute();
+            var values = JsonConvert.SerializeObject(response);
 
-        //WriteLine(JsonConvert.SerializeObject(values));
-        //if (values != null && values.Count > 0)
-        //    return values;
-        //else { WriteLine("No data found"); return values; }
-        //}
+            WriteLine(JsonConvert.SerializeObject(values));
+            WriteLine(JsonConvert.SerializeObject(response));
+        }
     }
 }
