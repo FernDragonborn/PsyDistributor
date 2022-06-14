@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PsyDistributor_Tests", "PsyDistributor_Tests\PsyDistributor_Tests.csproj", "{B516C221-771E-49A4-8790-6BBFDD6F7412}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{E2BA80A1-81AE-45B5-B744-D659CC255497}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2BA80A1-81AE-45B5-B744-D659CC255497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2BA80A1-81AE-45B5-B744-D659CC255497}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B516C221-771E-49A4-8790-6BBFDD6F7412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B516C221-771E-49A4-8790-6BBFDD6F7412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B516C221-771E-49A4-8790-6BBFDD6F7412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B516C221-771E-49A4-8790-6BBFDD6F7412}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

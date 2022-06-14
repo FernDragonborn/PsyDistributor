@@ -64,30 +64,31 @@ namespace PsyDistributor
         static void Main()
         {
             DbInit();
-            /*var oblist = new List<object>() { "Hello", "moto!" };
-            * CreateEntry(1, 1, "A", oblist);
-            * var uplist = new List<object>() { "updated" };
-            * UpdateEntry(1, 1, "C384", uplist);
-            */
 
-            /*WriteLine("Try to search a psy for 177");
-            IList<IList<object>> entry = ReadEntry(2, 1, "A177:I");
-            if (entry != null && entry.Count > 0)
-            {
-                foreach (var row in entry)
-                    WriteLine($"- {row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]} | {row[5]} " +
-                        $"| {row[6]} | {row[7]} | {row[8]}");
-            }
-            else WriteLine("No data found");
+            //var oblist = new List<object>() { "Hello", "moto!" };
+            //CreateEntry(1, 1, "A", oblist);
+            //var uplist = new List<object>() { "updated" };
+            //UpdateEntry(1, 1, "C384", uplist);
 
-            IList<IList<object>> psyList = ReadEntry(1, 1, "A177:I");
-            if (entry != null && psyList.Count > 0)
-            {
-                foreach (var row in psyList)
-                    WriteLine($"- {row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]} | {row[5]} " +
-                        $"| {row[6]} | {row[7]} | {row[8]}");
-            }
-            else WriteLine("No data found");*/
+
+            //WriteLine("Try to search a psy for 177");
+            //IList<IList<object>> entry = ReadEntry(2, 1, "A177:I");
+            //if (entry != null && entry.Count > 0)
+            //{
+            //    foreach (var row in entry)
+            //        WriteLine($"- {row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]} | {row[5]} " +
+            //            $"| {row[6]} | {row[7]} | {row[8]}");
+            //}
+            //else WriteLine("No data found");
+
+            //IList<IList<object>> psyList = ReadEntry(1, 1, "A177:I");
+            //if (entry != null && psyList.Count > 0)
+            //{
+            //    foreach (var row in psyList)
+            //        WriteLine($"- {row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]} | {row[5]} " +
+            //            $"| {row[6]} | {row[7]} | {row[8]}");
+            //}
+            //else WriteLine("No data found");
             //var values = new List<string>();
 
 
@@ -99,8 +100,9 @@ namespace PsyDistributor
             //}
             //else WriteLine("No data found");
 
-            //ReadEntry_Console(1, 1, "A2:G5");
-            ReadEntryFilter(1, 1);
+            ReadEntryConsole(1, 1, "A2:G5");
+            Read();
+            //ReadEntryFilter(1, 1);
         }
     }
 }

@@ -201,7 +201,7 @@ namespace PsyDistributor
             };
             //dataFilterObj.DeveloperMetadataLookup.MetadataId = 1;
 
-            dataFilterObj.DeveloperMetadataLookup.MetadataValue = "Київ";
+            //dataFilterObj.DeveloperMetadataLookup.MetadataValue = "Київ";
             var dataFiltersArr = new List<DataFilter>
             {
                 dataFilterObj
