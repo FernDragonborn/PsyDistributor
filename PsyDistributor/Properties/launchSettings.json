@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PsyDistributor": {
+      "commandName": "Project",
+      "sqlDebugging": true
+    }
+  }
+}

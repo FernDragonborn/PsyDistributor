@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Globalization;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Auth.OAuth2;
 using static System.Console;
 using static PsyDistributor.Crud;
 using static PsyDistributor.Program;
-using System.Globalization;
+using System.Threading.Tasks;
 
 namespace PsyDistributor
 {
@@ -61,8 +62,10 @@ namespace PsyDistributor
     }
     class App
     {
-        static void Main()
+        static async Task Main()
         {
+            Console.OutputEncoding = System.Text.Encoding.Unicode;
+            TgBot.TgInit();
             DbInit();
 
             //var oblist = new List<object>() { "Hello", "moto!" };
