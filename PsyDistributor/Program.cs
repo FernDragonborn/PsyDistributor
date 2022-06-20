@@ -5,8 +5,9 @@ using System.Globalization;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
 using Google.Apis.Auth.OAuth2;
+using PsyDistributor.APIs;
 using static System.Console;
-using static PsyDistributor.Crud;
+using static PsyDistributor.APIs.Crud;
 using static PsyDistributor.Program;
 using System.Threading.Tasks;
 
@@ -68,11 +69,11 @@ namespace PsyDistributor
         static async Task Main()
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+#pragma warning disable CS4014
             //TgBot.TgInit();
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+#pragma warning restore CS4014 
             DbInit();
-
+            OneBox.RunAsync().GetAwaiter().GetResult();
             //ReadEntryConsole(1, 1, "A2:G5");
             ReadEntryByValueFilter(1, 1);
             Read();

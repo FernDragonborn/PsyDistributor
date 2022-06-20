@@ -10,7 +10,7 @@ using static System.Console;
 
 //сейчас прога работает с таблицей на гугл диске Папороти
 //потом подрубить к основной
-namespace PsyDistributor
+namespace PsyDistributor.APIs
 {
     internal static class Crud
     {
@@ -26,7 +26,7 @@ namespace PsyDistributor
         internal static void DbInit()
         {
             //for ukr lang support
-            Console.OutputEncoding = System.Text.Encoding.Default;
+            OutputEncoding = System.Text.Encoding.Default;
             //google authentication shit. Don't touch
             GoogleCredential credential;
             using (var stream = new FileStream("client_secrets.json", FileMode.Open, FileAccess.Read))
@@ -189,7 +189,7 @@ namespace PsyDistributor
         static void WriteListToConsole(List<List<object>> list)
         {
             CheckNullInput(list);
-            Console.WriteLine("");
+            WriteLine("");
         }
         internal static void ReadEntry_Batch(int bookId, int sheetId)
         {
@@ -205,11 +205,12 @@ namespace PsyDistributor
 
             var developerMetadataLookup = new DeveloperMetadataLookup
             {
-                MetadataValue = "2"
+                MetadataValue = "Вінницька обл.",
+                LocationType = "COLUMN"
             };
             var dataFilterObj = new DataFilter
             {
-                A1Range = "D2:D5",
+                //A1Range = "D2:D5",
                 DeveloperMetadataLookup = developerMetadataLookup
             };
 
