@@ -12,18 +12,18 @@ using static System.Console;
 //потом подрубить к основной
 namespace PsyDistributor
 {
-    public static class Crud
+    internal static class Crud
     {
-        static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
-        static readonly string applicationName = "PsyDistributorApp";
-        static readonly string spreadsheetIdPsy = "1nnBP0fQ5Li2OpwjRMVtLPfvPVaHBc3hp3-Jnd1z6aMk";
-        static readonly string spreadsheetIdClient = "1EMfaPrLPFQkfLvo0-RLRcfGWU8v21j6mCAG4Q_HW6kg";
-        static readonly string spreadsheetIdRequest = "1IfkLxmyl09BKXKaozkRtXXODkUjvenZOxGmn_6mo3VY";
-        static string spreadsheetId = "1nnBP0fQ5Li2OpwjRMVtLPfvPVaHBc3hp3-Jnd1z6aMk";
-        static string sheet;
-        static SheetsService service;
+        private static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
+        private static readonly string applicationName = "PsyDistributorApp";
+        private static readonly string spreadsheetIdPsy = "1nnBP0fQ5Li2OpwjRMVtLPfvPVaHBc3hp3-Jnd1z6aMk";       //лист с псхиологами
+        private static readonly string spreadsheetIdClient = "1EMfaPrLPFQkfLvo0-RLRcfGWU8v21j6mCAG4Q_HW6kg";    //лист с клиентами
+        private static readonly string spreadsheetIdRequest = "1IfkLxmyl09BKXKaozkRtXXODkUjvenZOxGmn_6mo3VY";   //UNDONE написать что за лист
+        private static string spreadsheetId = spreadsheetIdPsy;
+        private static string sheet;
+        private static SheetsService service;
 
-        public static void DbInit()
+        internal static void DbInit()
         {
             //for ukr lang support
             Console.OutputEncoding = System.Text.Encoding.Default;
@@ -111,10 +111,11 @@ namespace PsyDistributor
         {
             var ErrNullIput = new Exception("Null input");
             if (data == null) throw ErrNullIput;
+            if (data is List<object>) if (data.Count = 0) throw ErrNullIput;
         }
 
         //entry = запись
-        public static void CreateEntry(int bookId, int sheetId, string firstColumn, List<object> enteriesList)
+        internal static void CreateEntry(int bookId, int sheetId, string firstColumn, List<object> enteriesList)
         {
             CheckNullInput(enteriesList);
             BookAndSheetSelection(bookId, sheetId);
@@ -134,7 +135,7 @@ namespace PsyDistributor
             var appendResponse = appendRequest.Execute();
 
         }
-        public static IList<IList<object>> ReadEntry(int bookId, int sheetId, string cells)
+        internal static IList<IList<object>> ReadEntry(int bookId, int sheetId, string cells)
         {
             BookAndSheetSelection(bookId, sheetId);
             string range = $"{sheet}!{cells}";
@@ -147,7 +148,7 @@ namespace PsyDistributor
                 return values;
             else { WriteLine("No data found"); return values; }
         }
-        public static void UpdateEntry(int bookId, int sheetId, string cell, List<object> enteriesList)
+        internal static void UpdateEntry(int bookId, int sheetId, string cell, List<object> enteriesList)
         {
             CheckNullInput(enteriesList);
             BookAndSheetSelection(bookId, sheetId);
@@ -163,7 +164,7 @@ namespace PsyDistributor
                 .ValueInputOptionEnum.USERENTERED;
             var updateResponse = updateRequest.Execute();
         }
-        public static void DeleteEntry(int bookId, int sheetId, string cells)
+        internal static void DeleteEntry(int bookId, int sheetId, string cells)
         {
             BookAndSheetSelection(bookId, sheetId);
             string range = $"{sheet}!{cells}";
@@ -172,7 +173,8 @@ namespace PsyDistributor
             var deleteRequest = service.Spreadsheets.Values.Clear(requestBody, spreadsheetId, range);
             var deleteResponse = deleteRequest.Execute();
         }
-        public static void ReadEntryConsole(int bookId, int sheetId, string cells)
+        //UNDONE ReadEntryConsole()
+        internal static void ReadEntryConsole(int bookId, int sheetId, string cells)
         {
             var values = ReadEntry(bookId, sheetId, cells);
 
@@ -183,32 +185,38 @@ namespace PsyDistributor
             }
             else WriteLine("No data found");
         }
-        /*public static void ReadEntry_Batch(int bookId, int sheetId)
+        //UNDONE WriteListToConsole()
+        static void WriteListToConsole(List<List<object>> list)
+        {
+            CheckNullInput(list);
+            Console.WriteLine("");
+        }
+        internal static void ReadEntry_Batch(int bookId, int sheetId)
         {
             BookAndSheetSelection(bookId, sheetId);
             var ranges = new List<string>();
             SpreadsheetsResource.ValuesResource.BatchGetRequest request = service.Spreadsheets.Values.BatchGet(spreadsheetId);
             ranges.Add("A1:B5");
             request.Ranges = ranges;
-        }*/
-        public static void ReadEntryFilter(int bookId, int sheetId)
+        }
+        public static void ReadEntryByValueFilter(int bookId, int sheetId/*, string cells, string filterValue*/)
         {
             BookAndSheetSelection(bookId, sheetId);
 
+            var developerMetadataLookup = new DeveloperMetadataLookup
+            {
+                MetadataValue = "2"
+            };
             var dataFilterObj = new DataFilter
             {
                 A1Range = "D2:D5",
+                DeveloperMetadataLookup = developerMetadataLookup
             };
-            //dataFilterObj.DeveloperMetadataLookup.MetadataId = 1;
 
-            //dataFilterObj.DeveloperMetadataLookup.MetadataValue = "Київ";
-            var dataFiltersArr = new List<DataFilter>
+            var requestBody = new BatchGetValuesByDataFilterRequest
             {
-                dataFilterObj
+                DataFilters = new List<DataFilter> { dataFilterObj }
             };
-
-            var requestBody = new BatchGetValuesByDataFilterRequest();
-            requestBody.DataFilters = dataFiltersArr;
 
             SpreadsheetsResource.ValuesResource.BatchGetByDataFilterRequest batchReadRequest =
                 service.Spreadsheets.Values.BatchGetByDataFilter(requestBody, spreadsheetId);

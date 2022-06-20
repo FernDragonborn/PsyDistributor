@@ -14,19 +14,20 @@ namespace PsyDistributor
 {
     public static class Program
     {
-        public static void countRequestTimeStats()
+        public static void CountRequestTimeStats()
         {
             var request = ReadEntry(3, 1, "A2:A1764");
             var values = new List<DateTime>();
             string a = null;
             values.Add(DateTime.Parse(Convert.ToString(request[0][0])));
             foreach (var row in request)
+            {
                 foreach (var value in row)
                 {
                     a = value.ToString().Replace(",", " ");
                     values.Add(Convert.ToDateTime(a));
                 }
-
+            }
             var hours = new int[24];
             for (int i = 0; i < values.Count; i++)
                 hours[values[i].Hour]++;
@@ -60,52 +61,21 @@ namespace PsyDistributor
             }
         }
     }
+
+
     class App
     {
         static async Task Main()
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
-            TgBot.TgInit();
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            //TgBot.TgInit();
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             DbInit();
 
-            //var oblist = new List<object>() { "Hello", "moto!" };
-            //CreateEntry(1, 1, "A", oblist);
-            //var uplist = new List<object>() { "updated" };
-            //UpdateEntry(1, 1, "C384", uplist);
-
-
-            //WriteLine("Try to search a psy for 177");
-            //IList<IList<object>> entry = ReadEntry(2, 1, "A177:I");
-            //if (entry != null && entry.Count > 0)
-            //{
-            //    foreach (var row in entry)
-            //        WriteLine($"- {row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]} | {row[5]} " +
-            //            $"| {row[6]} | {row[7]} | {row[8]}");
-            //}
-            //else WriteLine("No data found");
-
-            //IList<IList<object>> psyList = ReadEntry(1, 1, "A177:I");
-            //if (entry != null && psyList.Count > 0)
-            //{
-            //    foreach (var row in psyList)
-            //        WriteLine($"- {row[0]} | {row[1]} | {row[2]} | {row[3]} | {row[4]} | {row[5]} " +
-            //            $"| {row[6]} | {row[7]} | {row[8]}");
-            //}
-            //else WriteLine("No data found");
-            //var values = new List<string>();
-
-
-
-            //if (values != null && values.Count > 0)
-            //{
-            //    foreach (var item in values)
-            //        WriteLine($"-  {item}");
-            //}
-            //else WriteLine("No data found");
-
-            ReadEntryConsole(1, 1, "A2:G5");
+            //ReadEntryConsole(1, 1, "A2:G5");
+            ReadEntryByValueFilter(1, 1);
             Read();
-            //ReadEntryFilter(1, 1);
         }
     }
 }
