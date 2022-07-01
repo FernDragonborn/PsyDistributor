@@ -66,16 +66,16 @@ namespace PsyDistributor
 
     class App
     {
-        static async Task Main()
+        static void Main()
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 #pragma warning disable CS4014
             //TgBot.TgInit();
 #pragma warning restore CS4014 
             DbInit();
-            OneBox.RunAsync().GetAwaiter().GetResult();
+            OneBox.OneBoxInit();
             //ReadEntryConsole(1, 1, "A2:G5");
-            ReadEntryByValueFilter(1, 1);
+            //ReadEntryByValueFilter(1, 1);
             Read();
         }
     }

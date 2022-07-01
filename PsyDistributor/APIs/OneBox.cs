@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Http.Json;
 using System.Threading.Tasks;
 
 namespace PsyDistributor.APIs
@@ -17,6 +18,12 @@ namespace PsyDistributor.APIs
     class OneBox
     {
         static HttpClient client = new HttpClient();
+
+        internal static async void OneBoxInit()
+        {
+            await RunAsync();
+            Console.WriteLine("OneBox module initialized");
+        }
 
         static void ShowProduct(Product product)
         {
@@ -63,15 +70,10 @@ namespace PsyDistributor.APIs
             return response.StatusCode;
         }
 
-        static void Main()
-        {
-
-        }
-
         static async Task RunAsync()
         {
             // Update port # in the following line.
-            client.BaseAddress = new Uri("http://localhost:64195/");
+            client.BaseAddress = new Uri("https://psychology-group.1b.app");
             client.DefaultRequestHeaders.Accept.Clear();
             client.DefaultRequestHeaders.Accept.Add(
                 new MediaTypeWithQualityHeaderValue("application/json"));
