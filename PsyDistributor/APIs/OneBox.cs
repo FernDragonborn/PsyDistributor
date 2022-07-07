@@ -5,6 +5,7 @@ using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PsyDistributor.APIs;
@@ -29,7 +30,6 @@ internal class dataArray
 {
     public string token { get; set; }
 }
-
 public class Product
 {
     public string Id { get; set; }
@@ -42,7 +42,7 @@ class OneBox
 {
     static HttpClient client = new HttpClient();
 
-    internal static async void OneBoxInit()
+    internal static async void Init()
     {
         await RunAsync();
         Console.WriteLine("OneBox module initialized");
@@ -97,7 +97,7 @@ class OneBox
     {
         var auth = new Auth();
         var token = new Token();
-        HttpResponseMessage response = await client.PostAsJsonAsync($"{path}/api/v2/token/get/", auth);
+        HttpResponseMessage response = await client.PostAsJsonAsync($"{path}api/v2/token/get/", auth);
         if (response.IsSuccessStatusCode)
         {
             token = await response.Content.ReadAsAsync<Token>();
@@ -106,52 +106,91 @@ class OneBox
     }
 
 
-
     static async Task RunAsync()
     {
         // Update port # in the following line.
-        client.BaseAddress = new Uri("https://testingapi.1b.app");
+        client.BaseAddress = new Uri("https://testingapi.1b.app/");
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Accept.Add(
             new MediaTypeWithQualityHeaderValue("application/json"));
         await GetToken($"{client.BaseAddress}");
+        Listen(new[] { $"{client.BaseAddress}" });
+        //try
+        //{
+        //    // Create a new product
+        //    Product product = new Product
+        //    {
+        //        Name = "Gizmo",
+        //        Price = 100,
+        //        Category = "Widgets"
+        //    };
 
-        try
-        {
-            // Create a new product
-            Product product = new Product
-            {
-                Name = "Gizmo",
-                Price = 100,
-                Category = "Widgets"
-            };
+        //    var url = await CreateProductAsync(product);
+        //    Console.WriteLine($"Created at {url}");
 
-            var url = await CreateProductAsync(product);
-            Console.WriteLine($"Created at {url}");
+        //    // Get the product
+        //    product = await GetProductAsync(url.PathAndQuery);
+        //    ShowProduct(product);
 
-            // Get the product
-            product = await GetProductAsync(url.PathAndQuery);
-            ShowProduct(product);
+        //    // Update the product
+        //    Console.WriteLine("Updating price...");
+        //    product.Price = 80;
+        //    await UpdateProductAsync(product);
 
-            // Update the product
-            Console.WriteLine("Updating price...");
-            product.Price = 80;
-            await UpdateProductAsync(product);
+        //    // Get the updated product
+        //    product = await GetProductAsync(url.PathAndQuery);
+        //    ShowProduct(product);
 
-            // Get the updated product
-            product = await GetProductAsync(url.PathAndQuery);
-            ShowProduct(product);
+        //    // Delete the product
+        //    var statusCode = await DeleteProductAsync(product.Id);
+        //    Console.WriteLine($"Deleted (HTTP Status = {(int)statusCode})");
 
-            // Delete the product
-            var statusCode = await DeleteProductAsync(product.Id);
-            Console.WriteLine($"Deleted (HTTP Status = {(int)statusCode})");
-
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e.Message);
-        }
+        //}
+        //catch (Exception e)
+        //{
+        //    Console.WriteLine(e.Message);
+        //}
 
         Console.ReadLine();
+    }
+    public static void Listen(string[] prefixes)
+    {
+        if (!HttpListener.IsSupported)
+        {
+            Console.WriteLine("Windows XP SP2 or Server 2003 is required to use the HttpListener class.");
+            return;
+        }
+        if (prefixes == null || prefixes.Length == 0) { throw new ArgumentException("prefixes list is empty"); }
+
+        HttpListener listener = new HttpListener();
+        foreach (string s in prefixes)
+        {
+            listener.Prefixes.Add(s);
+        }
+        listener.Start();
+        Console.WriteLine("Listening...");
+        // Note: The GetContext method blocks while waiting for a request.
+
+
+        //HttpListener listener = new HttpListener();
+
+        ThreadPool.QueueUserWorkItem(Process, listener.GetContext());
+
+        void Process(object o) // process request
+        {
+            var context = o as HttpListenerContext;
+        }
+
+        HttpListenerContext context = listener.GetContext();
+
+
+        //HttpListenerRequest request = context.Request;
+        //// Obtain a response object.
+        //HttpListenerResponse response = context.Response;
+        //// Construct a response.
+
+        // Get a response stream and write the response to it
+
+        listener.Stop();
     }
 }

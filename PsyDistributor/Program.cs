@@ -74,7 +74,7 @@ class App
 #pragma warning restore CS4014 
         //DbInit();
         //OneBox.GetToken("https://testingapi.1b.app");
-        OneBox.OneBoxInit();
+        OneBox.Init();
         //ReadEntryConsole(1, 1, "A2:G5");
         //ReadEntryByValueFilter(1, 1);
         Read();

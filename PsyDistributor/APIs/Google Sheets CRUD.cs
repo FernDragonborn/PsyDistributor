@@ -111,7 +111,7 @@ internal static class Crud
     private static void CheckNullInput(dynamic data)
     {
         if (data is null) throw new ArgumentNullException(nameof(data));
-        var ErrEmptyInput = new Exception($"{nameof(data)} is empty");
+        var ErrEmptyInput = new ArgumentException($"{nameof(data)} is empty");
         if (data is List<object>) if (data.Count = 0) throw ErrEmptyInput;
     }
 
