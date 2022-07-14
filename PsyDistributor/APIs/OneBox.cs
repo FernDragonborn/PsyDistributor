@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -12,24 +13,26 @@ namespace PsyDistributor.APIs;
 
 internal class Auth
 {
-    public Auth()
+    public Auth(string login, string restapipassword)
     {
-        login = "restapi";
-        restapipassword = "425c6273b33c540a85626593f15ddf0d";
+        this.login = login;
+        this.restapipassword = restapipassword;
     }
+    public Auth() { }
     public string login { get; set; }
     public string restapipassword { get; set; }
 
 }
 internal class Token
 {
-    public dataArray dataArray { get; set; }
+    public DataArray dataArray { get; set; }
     public string status { get; set; }
 }
-internal class dataArray
+internal class DataArray
 {
     public string token { get; set; }
 }
+
 public class Product
 {
     public string Id { get; set; }
@@ -42,18 +45,11 @@ class OneBox
 {
     static HttpClient client = new HttpClient();
 
-    internal static async void Init()
-    {
-        await RunAsync();
-        Console.WriteLine("OneBox module initialized");
-    }
-
     static void ShowProduct(Product product)
     {
         Console.WriteLine($"Name: {product.Name}\tPrice: " +
             $"{product.Price}\tCategory: {product.Category}");
     }
-
     static async Task<Uri> CreateProductAsync(Product product)
     {
         HttpResponseMessage response = await client.PostAsJsonAsync(
@@ -63,7 +59,6 @@ class OneBox
         // return URI of the created resource.
         return response.Headers.Location;
     }
-
     static async Task<Product> GetProductAsync(string path)
     {
         Product product = null;
@@ -74,7 +69,6 @@ class OneBox
         }
         return product;
     }
-
     static async Task<Product> UpdateProductAsync(Product product)
     {
         HttpResponseMessage response = await client.PutAsJsonAsync(
@@ -85,17 +79,24 @@ class OneBox
         product = await response.Content.ReadAsAsync<Product>();
         return product;
     }
-
     static async Task<HttpStatusCode> DeleteProductAsync(string id)
     {
         HttpResponseMessage response = await client.DeleteAsync(
             $"api/products/{id}");
         return response.StatusCode;
     }
+    internal static async void Init()
+    {
+        await RunAsync();
+        Console.WriteLine("OneBox module initialized");
+    }
 
     internal static async Task GetToken(string path)
     {
-        var auth = new Auth();
+        string fileName = "1b_secrets.json";
+        string jsonString = File.ReadAllText(fileName);
+        var auth = JsonSerializer.Deserialize<Auth>(jsonString);
+
         var token = new Token();
         HttpResponseMessage response = await client.PostAsJsonAsync($"{path}api/v2/token/get/", auth);
         if (response.IsSuccessStatusCode)
@@ -108,7 +109,6 @@ class OneBox
 
     static async Task RunAsync()
     {
-        // Update port # in the following line.
         client.BaseAddress = new Uri("https://testingapi.1b.app/");
         client.DefaultRequestHeaders.Accept.Clear();
         client.DefaultRequestHeaders.Accept.Add(
